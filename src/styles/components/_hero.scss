@@ -1,0 +1,74 @@
+@import "../variables.scss";
+
+.home {
+  h2 {
+    font-weight: 700;
+  }
+}
+
+.hero {
+  height: 550px;
+  overflow: hidden;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url(../../assets/chuttersnap-254941-unsplash.jpg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-weight: 700;
+    font-size: 4.5rem;
+  }
+}
+
+.hero-searchBar {
+  display: flex;
+  width: 45%;
+  margin-top: 5rem;
+  input {
+    flex: 1;
+    height: 100%;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border: none;
+  }
+
+  button {
+    width: 15%;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    color: #fff;
+    font-size: 1.5rem;
+    background-color: $brand-primary;
+    border: none;
+  }
+}
+
+.about {
+  text-align: center;
+  padding-right: 20rem;
+  padding-left: 20rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  margin-top: 5rem;
+  line-height: $large-space;
+  background-color: #e5e5e5;
+}
+
+.property-list__rentals {
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 20rem;
+}
+
+.property-listing-row {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 5rem;
+}

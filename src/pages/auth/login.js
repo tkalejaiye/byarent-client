@@ -22,10 +22,13 @@ export default class Login extends Component {
     })
       .then(response => response.json())
       .then(res => {
+        console.log(res);
         if (res.error) {
           this.setState({ error: res.error });
         } else {
-          this.setState({ token: res.token });
+          localStorage.setItem("byarent-token", res.token);
+          localStorage.setItem("byarent-user", res.user);
+          this.props.history.push("/");
         }
       })
       .catch(error => console.log(error));
@@ -37,10 +40,17 @@ export default class Login extends Component {
   };
 
   render() {
-    return (
+    return this.props.isAuthenticated() ? (
+      <div>
+        <h1>Is Authed</h1>
+      </div>
+    ) : (
       <div className="boxed-view">
         <div className="boxed-view__box">
-          <h1>Login Page</h1>
+          <div className="boxed-view__headerText">
+            <h1>Welcome back!</h1>
+            <h2>Login</h2>
+          </div>
           {this.state.error ? <p>{this.state.error}</p> : undefined}
           <form onSubmit={this.handleSubmit} className="boxed-view__form">
             <input
@@ -57,7 +67,9 @@ export default class Login extends Component {
               value={this.state.password}
               onChange={this.handleInputChange}
             />
-            <input type="submit" />
+            <button type="submit" className="boxed-view__button">
+              Log In
+            </button>
           </form>
           Don't have an account? <Link to="/signup">Sign Up</Link>
         </div>

@@ -1,0 +1,30 @@
+.navbar {
+  display: flex;
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+
+  a {
+    text-decoration: none;
+    color: #303030;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+.logo {
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}

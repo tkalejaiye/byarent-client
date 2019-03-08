@@ -25,9 +25,8 @@ export default class Signup extends Component {
         if (res.error) {
           this.setState({ error: res.error });
         } else {
-          this.setState({ token: res.token }, () =>
-            alert("token received: " + this.state.token)
-          );
+          localStorage.setItem("byarent-token", JSON.stringify(res.token));
+          this.props.history.push("/");
         }
       })
       .catch(error => console.log(error));
@@ -42,7 +41,10 @@ export default class Signup extends Component {
     return (
       <div className="boxed-view">
         <div className="boxed-view__box">
-          <h1>Signup Page</h1>
+          <div className="boxed-view__headerText">
+            <h1>Get Started</h1>
+            <h2>Signup</h2>
+          </div>
           {this.state.error ? <p>{this.state.error}</p> : undefined}
           <form onSubmit={this.handleSubmit} className="boxed-view__form">
             <input
@@ -59,7 +61,9 @@ export default class Signup extends Component {
               value={this.state.password}
               onChange={this.handleInputChange}
             />
-            <input type="submit" />
+            <button type="submit" className="boxed-view__button">
+              Sign Up
+            </button>
           </form>
           Already have an account? <Link to="/login">Log in</Link>
         </div>
